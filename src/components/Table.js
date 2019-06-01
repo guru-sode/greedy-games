@@ -94,11 +94,10 @@ class Table extends Component {
               data={this.state.dataForTable.reverse()}
               filterable
               sortable= {true}
-              page={this.state.page}
               defaultPageSize={10}
-              pages={this.state.data.length/10}
               showPagination={true}
-              showPageSizeOptions= {false}
+              showPageSizeOptions= {true}
+              pageSizeOptions = {[5,10]}
               columns={[
                 {
                   Header: 'Date',
