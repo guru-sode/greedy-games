@@ -9,7 +9,8 @@ class Table extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            data: this.props.data
+            data: this.props.data,
+            dataForTable: this.props.data
          };
         this.handleChangeStart = this.handleChangeStart.bind(this);
         this.handleChangeEnd = this.handleChangeEnd.bind(this);
@@ -26,6 +27,19 @@ class Table extends Component {
         this.setState({
             startDate: date
         });
+        if(this.state.endDate){
+            const start = moment(date, "YYYY/MM/DD").valueOf();
+            const end = moment(this.state.endDate, "YYYY/MM/DD").valueOf();
+            const sort = this.state.data.filter((entry)=>{
+                const milli = moment(entry.timestamp, "YYYY/MM/DD").valueOf();
+                if(milli >= start && milli <= end){
+                    return entry
+                }
+            })
+            this.setState({
+                dataForTable: sort
+            })
+        }
     }
 
     handleChangeEnd(date) {
@@ -42,7 +56,7 @@ class Table extends Component {
                 }
             })
             this.setState({
-                data: sort
+                dataForTable: sort
             })
         }
     }
@@ -77,7 +91,7 @@ class Table extends Component {
             </div>
             <ReactTable
               className="no-border -highlight"
-              data={this.state.data.reverse()}
+              data={this.state.dataForTable.reverse()}
               filterable
               sortable= {true}
               page={this.state.page}
