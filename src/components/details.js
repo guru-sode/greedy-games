@@ -25,11 +25,11 @@ function details() {
           <li>React table</li>
           <li>Moment JS</li>
           </ul>
-          <ul className="details"> Using this assignment:
+          <ul className="details"> Using this project:
           <li> There are three tabs details, grahical representation and tabular representation </li>
           <li> Graph is ploted based on the date range selected by the user. Future dates are blocked</li>
           <li>If user selects invalid date range or no data is availabe in that range graph and table will be blank</li>
-          <li>Table has pagination feature with customised page size</li>
+          <li>Table has pagination feature with customised page size, click on each column header to sort the table</li>
           <li>UI will handle connectibity problems or broken API end point</li>
           </ul>
           <ul className="details"> Future improvements:

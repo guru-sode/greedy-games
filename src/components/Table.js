@@ -101,15 +101,33 @@ class Table extends Component {
               columns={[
                 {
                   Header: 'Date',
-                  accessor: 'timestamp'
+                  accessor: 'timestamp',
+                  sortMethod: (a, b) => {
+                    if (a === b) {
+                      return a > b ? 1 : -1;
+                    }
+                    return a > b ? 1 : -1;
+                  }
                 },
                 {
                   Header: 'Game',
-                  accessor: 'game'
+                  accessor: 'game',
+                  sortMethod: (a, b) => {
+                    if (a.length === b.length) {
+                      return a > b ? 1 : -1;
+                    }
+                    return a.length > b.length ? 1 : -1;
+                  }
                 },
                 {
                   Header: 'Revenue',
-                  accessor: 'revenue'
+                  accessor: 'revenue',
+                  sortMethod: (a, b) => {
+                    if (a === b) {
+                      return a > b ? 1 : -1;
+                    }
+                    return a > b ? 1 : -1;
+                  }
                 },
                 {
                   Header: 'Impressions',
@@ -118,10 +136,15 @@ class Table extends Component {
                 {
                     id: 'calculateEcPM',
                     Header: 'eCPM',
-                    accessor: d => (d.revenue/d.impressions)*1000
+                    accessor: d => (d.revenue/d.impressions)*1000,
+                    sortMethod: (a, b) => {
+                        if (a === b) {
+                          return a > b ? 1 : -1;
+                        }
+                        return a > b ? 1 : -1;
+                      }
                   }
               ]}
-            //   onPageChange={pageIndex => this.loadPage(pageIndex)}
             />
             </div>
         );
