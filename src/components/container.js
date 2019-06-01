@@ -37,7 +37,7 @@ class container extends Component {
     }
 
     componentWillMount = () => {
-        const url = 'http://www.mocky.io/v2/5cd04a20320000442200fc10';
+        const url = 'https://www.mocky.io/v2/5cd04a20320000442200fc10';
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
