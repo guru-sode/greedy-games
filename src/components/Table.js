@@ -65,7 +65,6 @@ class Table extends Component {
     render() {
         return (
             <div>
-            <div style={{ float: 'left', marginTop: '250px' }}>
                 <DatePicker
                     selected={this.state.startDate}
                     selectsStart
@@ -75,6 +74,7 @@ class Table extends Component {
                     maxDate={new Date()}
                     placeholderText="Select FROM Date"
                     dateFormat="yyyy/MM/dd"
+                    className="datePicker"
                 />
 
                 <DatePicker
@@ -87,8 +87,8 @@ class Table extends Component {
                     maxDate={new Date()}
                     placeholderText="Select TO Date"
                     dateFormat="yyyy/MM/dd"
+                    className="datePicker"
                 />
-            </div>
             <ReactTable
               className="no-border -highlight"
               data={this.state.dataForTable.reverse()}

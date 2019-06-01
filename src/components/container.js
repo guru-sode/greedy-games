@@ -66,12 +66,14 @@ class container extends Component {
                 <div className={tab}>
                     <AppBar position="static">
                         <Tabs value={this.state.value} onChange={this.handleChange}>
+                            <Tab label="Details" />    
                             <Tab label="Graphical representation" />
                             <Tab label="Tabular  representation" />
                         </Tabs>
                     </AppBar>
-                    {this.state.value === 0 && <TabContainer> <Graph data={this.state.data} /></TabContainer>}
-                    {this.state.value === 1 && <TabContainer> <Table data={this.state.data} /></TabContainer>}
+                    {this.state.value === 0 && <TabContainer><h1>Hello</h1></TabContainer>}
+                    {this.state.value === 1 && <TabContainer> <Graph data={this.state.data} /></TabContainer>}
+                    {this.state.value === 2 && <TabContainer> <Table data={this.state.data} /></TabContainer>}
                 </div> }
             </div>
         );
