@@ -61,6 +61,8 @@ class container extends Component {
         return (
             <div>
                 <h1>GREEDY GAMES ASSIGNMENT</h1>
+                { this.state.isError ? 
+                <h1>Problem in Internet connectivity</h1> :
                 <div className={tab}>
                     <AppBar position="static">
                         <Tabs value={this.state.value} onChange={this.handleChange}>
@@ -70,7 +72,7 @@ class container extends Component {
                     </AppBar>
                     {this.state.value === 0 && <TabContainer> <Graph data={this.state.data} /></TabContainer>}
                     {this.state.value === 1 && <TabContainer> <Table data={this.state.data} /></TabContainer>}
-                </div>
+                </div> }
             </div>
         );
     }
