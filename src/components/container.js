@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Graph from './Graph';
 import Table from './Table';
+import Details from './details';
 
 const tab = {
     flexGrow: '1',
@@ -71,7 +70,7 @@ class container extends Component {
                             <Tab label="Tabular  representation" />
                         </Tabs>
                     </AppBar>
-                    {this.state.value === 0 && <TabContainer><h1>Hello</h1></TabContainer>}
+                    {this.state.value === 0 && <TabContainer><Details /></TabContainer>}
                     {this.state.value === 1 && <TabContainer> <Graph data={this.state.data} /></TabContainer>}
                     {this.state.value === 2 && <TabContainer> <Table data={this.state.data} /></TabContainer>}
                 </div> }

@@ -98,7 +98,7 @@ class Graph extends Component {
                         dateFormat="yyyy/MM/dd"
                         className="datePicker"
                     />
-                <LineChart width={1000} height={500} data={this.getData()}
+                <LineChart width={1400} height={500} data={this.getData()}
                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="timestamp" />
