@@ -51,7 +51,7 @@ class Table extends Component {
     render() {
         return (
             <div>
-            <div style={{ float: 'left', marginTop: '500px' }}>
+            <div style={{ float: 'left', marginTop: '250px' }}>
                 <DatePicker
                     selected={this.state.startDate}
                     selectsStart
@@ -76,15 +76,15 @@ class Table extends Component {
                 />
             </div>
             <ReactTable
-              manual
               className="no-border -highlight"
               data={this.state.data.reverse()}
               filterable
               sortable= {true}
-            //   page={this.state.page}
+              page={this.state.page}
               defaultPageSize={10}
               pages={this.state.data.length/10}
               showPagination={true}
+              showPageSizeOptions= {false}
               columns={[
                 {
                   Header: 'Date',
