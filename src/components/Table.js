@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import ReactTable from 'react-table';
+import moment from 'moment';
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-table/react-table.css'
 
@@ -31,13 +32,26 @@ class Table extends Component {
         this.setState({
             endDate: date
         });
+        if(this.state.startDate){
+            const start = moment(this.state.startDate, "YYYY/MM/DD").valueOf();
+            const end = moment(date, "YYYY/MM/DD").valueOf();
+            const sort = this.state.data.filter((entry)=>{
+                const milli = moment(entry.timestamp, "YYYY/MM/DD").valueOf();
+                if(milli >= start && milli <= end){
+                    return entry
+                }
+            })
+            this.setState({
+                data: sort
+            })
+        }
     }
 
 
     render() {
         return (
             <div>
-            <div style={{ float: 'left' }}>
+            <div style={{ float: 'left', marginTop: '500px' }}>
                 <DatePicker
                     selected={this.state.startDate}
                     selectsStart
@@ -61,17 +75,16 @@ class Table extends Component {
                     dateFormat="yyyy/MM/dd"
                 />
             </div>
-            {console.log(this.state.data)}
             <ReactTable
               manual
               className="no-border -highlight"
-              data={this.state.data}
+              data={this.state.data.reverse()}
               filterable
+              sortable= {true}
             //   page={this.state.page}
-            //   defaultPageSize={10}
-            //   pages={data.grouped_pages}
-            //   showPagination={showPagination}
-            //   minRows={data.grouped_pages}
+              defaultPageSize={10}
+              pages={this.state.data.length/10}
+              showPagination={true}
               columns={[
                 {
                   Header: 'Date',
